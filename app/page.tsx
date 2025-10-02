@@ -1,141 +1,175 @@
-"use client";
+// app/page.tsx
+import FlyingGuardian from "./components/FlyingGuardian";
 
-export default function HomePage() {
+export default function Home() {
   return (
-    <main id="home">
-      {/* Top nav */}
-      <nav className="nav">
-        <div className="container nav-row">
-          <div className="brand">PRTLY</div>
-          <div className="nav-links">
-            <a href="#about">About</a>
-            <a href="#features">Features</a>
-            <a href="#how">How it works</a>
-            <a href="#contact" className="btn btn-ghost">Contact</a>
+    <main
+      style={{
+        minHeight: "100vh",
+        background:
+          "radial-gradient(1200px 600px at 10% 10%, rgba(77,0,128,0.25), transparent), radial-gradient(1000px 800px at 90% 80%, rgba(0,128,255,0.15), transparent), #0c0e16",
+        color: "white",
+        fontFamily:
+          "ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial",
+      }}
+    >
+      {/* Top Bar */}
+      <header
+        style={{
+          position: "sticky",
+          top: 0,
+          backdropFilter: "blur(8px)",
+          background: "rgba(12,14,22,0.6)",
+          borderBottom: "1px solid rgba(255,255,255,0.06)",
+          zIndex: 5,
+        }}
+      >
+        <nav
+          style={{
+            maxWidth: 1100,
+            margin: "0 auto",
+            padding: "14px 16px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
+          <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+            <img
+              src="/guardian.png"
+              alt="PRTLY"
+              width={38}
+              height={38}
+              style={{ opacity: 0.8 }}
+            />
+            <strong style={{ letterSpacing: 1 }}>PRTLY</strong>
           </div>
-        </div>
-      </nav>
 
-      {/* HERO */}
-      <header className="section hero">
-        <div className="container grid2">
-          <div>
-            <p className="kicker">AI + Blockchain</p>
-            <h1 className="title">Fight Deepfakes with Proof & Detection</h1>
-            <p className="lead">
-              PRTLY helps creators and platforms verify media provenance on-chain,
-              and detect manipulated content in real-time.
-            </p>
-            <div className="cta">
-              <a href="#contact" className="btn btn-primary">Get Started</a>
-              <a
-                className="btn btn-ghost"
-                href="https://github.com/PRTLYofficial/prtly-next"
-                target="_blank"
-                rel="noreferrer"
-              >
-                View GitHub
-              </a>
-            </div>
-          </div>
-          <div className="card center">
-            <h3 className="card-title">Live Demo</h3>
-            <p className="muted">
-              You’re seeing our neon guardian flying. That image is served from
-              <code> /public/guardian.png</code> and animated on the client.
-            </p>
-          </div>
-        </div>
-      </header>
-
-      {/* ABOUT */}
-      <section id="about" className="section">
-        <div className="container grid3">
-          <div className="card">
-            <h3 className="card-title">Mission</h3>
-            <p>
-              Protect society from synthetic media harm by combining AI detection
-              with transparent, tamper-proof proofs on blockchain.
-            </p>
-          </div>
-          <div className="card">
-            <h3 className="card-title">What we build</h3>
-            <ul className="list">
-              <li>Media fingerprinting & on-chain registration</li>
-              <li>Deepfake detection API & dashboard</li>
-              <li>Verifier widgets for platforms</li>
-            </ul>
-          </div>
-          <div className="card">
-            <h3 className="card-title">Who it’s for</h3>
-            <ul className="list">
-              <li>Creators & newsrooms</li>
-              <li>Social platforms & communities</li>
-              <li>Compliance teams</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* FEATURES */}
-      <section id="features" className="section">
-        <div className="container">
-          <h2 className="section-title">Core features</h2>
-          <div className="grid3">
-            <div className="card">
-              <h4 className="card-title">On-chain provenance</h4>
-              <p>Register hashes & signatures to prove who published media first.</p>
-            </div>
-            <div className="card">
-              <h4 className="card-title">Detection engine</h4>
-              <p>Model ensemble flags manipulations (faces, voice, composites).</p>
-            </div>
-            <div className="card">
-              <h4 className="card-title">Trust badges</h4>
-              <p>Simple “verified / uncertain / fake” badges you can embed.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* HOW IT WORKS */}
-      <section id="how" className="section">
-        <div className="container">
-          <h2 className="section-title">How it works</h2>
-          <ol className="steps">
-            <li><span>1</span> Upload or ingest media (file / URL / API)</li>
-            <li><span>2</span> We fingerprint & analyze using AI</li>
-            <li><span>3</span> Store proof on chain for public verification</li>
-            <li><span>4</span> Share or embed the verification link</li>
-          </ol>
-        </div>
-      </section>
-
-      {/* CONTACT / CTA */}
-      <section id="contact" className="section cta-block">
-        <div className="container center">
-          <h2 className="title">Ready to protect your community?</h2>
-          <p className="lead">Talk to us about integrations, pilots, or early access.</p>
-          <div className="cta">
-            <a className="btn btn-primary" href="mailto:hello@prtly.ai">Email us</a>
-            <a className="btn btn-ghost" href="https://t.me/" target="_blank" rel="noreferrer">
-              Join Telegram
+          <div style={{ display: "flex", gap: 18, fontSize: 14 }}>
+            <a href="#about" style={{ color: "#cbd5e1", textDecoration: "none" }}>
+              About
+            </a>
+            <a href="#features" style={{ color: "#cbd5e1", textDecoration: "none" }}>
+              Features
+            </a>
+            <a href="#how" style={{ color: "#cbd5e1", textDecoration: "none" }}>
+              How it works
+            </a>
+            <a href="#contact" style={{ color: "#cbd5e1", textDecoration: "none" }}>
+              Contact
             </a>
           </div>
+        </nav>
+      </header>
+
+      {/* Hero */}
+      <section
+        style={{
+          maxWidth: 1100,
+          margin: "0 auto",
+          padding: "56px 16px 24px",
+          position: "relative",
+        }}
+      >
+        <h1
+          style={{
+            fontSize: 42,
+            lineHeight: 1.1,
+            margin: 0,
+            letterSpacing: 0.3,
+          }}
+        >
+          Fight Deepfakes with <span style={{ color: "#7dd3fc" }}>Proof</span> &{" "}
+          <span style={{ color: "#c084fc" }}>Detection</span>
+        </h1>
+
+        <p
+          style={{
+            maxWidth: 700,
+            color: "#cbd5e1",
+            marginTop: 14,
+            fontSize: 18,
+          }}
+        >
+          PRTLY helps creators and platforms verify media provenance on-chain and
+          detect manipulated content in real-time — powered by AI + blockchain.
+        </p>
+
+        <div style={{ display: "flex", gap: 14, marginTop: 22 }}>
+          <a
+            href="#demo"
+            style={{
+              background:
+                "linear-gradient(90deg, #60a5fa, #a78bfa 60%, #22d3ee)",
+              padding: "12px 18px",
+              borderRadius: 10,
+              color: "black",
+              fontWeight: 700,
+              textDecoration: "none",
+              boxShadow: "0 8px 24px rgba(124,58,237,0.25)",
+            }}
+          >
+            Get Started
+          </a>
+          <a
+            href="https://github.com/"
+            target="_blank"
+            rel="noreferrer"
+            style={{
+              padding: "12px 18px",
+              borderRadius: 10,
+              color: "#e2e8f0",
+              textDecoration: "none",
+              border: "1px solid rgba(226,232,240,0.2)",
+            }}
+          >
+            View GitHub
+          </a>
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer className="footer">
-        <div className="container footer-row">
-          <div className="muted">© {new Date().getFullYear()} PRTLY — All rights reserved.</div>
-          <div className="nav-links small">
-            <a href="https://x.com/" target="_blank" rel="noreferrer">X</a>
-            <a href="https://github.com/PRTLYofficial" target="_blank" rel="noreferrer">GitHub</a>
-            <a href="#home">Top ↑</a>
+      {/* Live Demo card */}
+      <section id="demo" style={{ padding: "10px 16px 80px" }}>
+        <div
+          style={{
+            maxWidth: 1100,
+            margin: "0 auto",
+            position: "relative",
+          }}
+        >
+          <div
+            style={{
+              background: "rgba(255,255,255,0.06)",
+              border: "1px solid rgba(255,255,255,0.08)",
+              borderRadius: 16,
+              padding: 22,
+              boxShadow: "0 30px 60px rgba(0,0,0,0.35)",
+            }}
+          >
+            <h2 style={{ margin: 0, fontSize: 26, marginBottom: 10 }}>Live Demo</h2>
+            <p style={{ color: "#cbd5e1", margin: 0 }}>
+              You’re seeing our neon guardian flying. The image is served from{" "}
+              <code>/public/guardian.png</code> and animated on the client.
+            </p>
           </div>
         </div>
+      </section>
+
+      {/* The animated guardian */}
+      <FlyingGuardian speed={1} />
+
+      {/* Simple footer */}
+      <footer
+        id="contact"
+        style={{
+          borderTop: "1px solid rgba(255,255,255,0.08)",
+          color: "#94a3b8",
+          padding: "18px 16px",
+          textAlign: "center",
+        }}
+      >
+        © {new Date().getFullYear()} PRTLY — All rights reserved.
       </footer>
     </main>
   );
-}
+            }
